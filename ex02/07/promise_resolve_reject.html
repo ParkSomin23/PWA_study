@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="
+        console.log('Promise 시작!');
+        let bStatus = Math.random() > 0.5;
+        fnCreatePromise(bStatus)
+            .then(pResult => console.log(pResult))
+            .catch(pErrorMsg => console.log(pErrorMsg));
+        console.log('Promise 종료');
+        ">상품 배송 시작!</button>
+
+    <script>
+        function fnCreatePromise(pStatus){
+            return new Promise((fnResolve, fnReject) => {
+                setTimeout(() => {
+                    if (pStatus) fnResolve('배달이 성공적으로 완료되었습니다');
+                    else fnReject('죄송합니다 아직 상품이 준비되지 못하였습니다');
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
