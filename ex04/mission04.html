@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <tilte></tilte>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="main">
+        <ul v-for="(item, index) in aStudentList">
+            <li>
+                <p>번호: {{index}} </p>
+                <p>이름: {{ item.name }}</p>
+                <p>나이:{{ item.age}}</p>
+            </li>    
+        </ul>
+    </div>
+</body>
+
+<script>
+    var info = new Vue({
+        el:'#main',
+        data:{
+            aStudentList:[{
+                name:'홍길동',
+                age: 27
+            },
+            {
+                name:'이순신',
+                age:30
+            },
+            {
+                name:'김유신',
+                age: 40
+            }]
+        }
+    })
+</script>
+</html>

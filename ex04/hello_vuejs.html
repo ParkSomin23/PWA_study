@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--책에는 없는데 @2를 넣어야 제대로 작동됨-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+    <div id="main">
+        <p> {{ sTitle }} </p> <!--머스태시 사용-->
+    </div>    
+
+    <script>
+        new Vue({
+            el: '#main',
+            data: {
+                sTitle: '안녕하세요!'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+        .blue_style { color:blue }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h1 v-bind:class="sColorName + '_style'">안녕하세요!</h1>
+        <input :value="sDate">
+    </div>
+
+    <script>
+        let app = new Vue({
+            el:'#main',
+            data: {
+                sDate: '올해 연도: ' + new Date().getFullYear(),
+                sColorName: 'blue'
+            }
+        });
+    </script>
+
+</body>
+</html>
