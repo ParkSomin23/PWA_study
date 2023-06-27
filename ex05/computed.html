@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+    <div id="main">
+        <p>뭔본 문장: "{{ sOriginalMessage }}""</p>
+        <p>대문자로 변환한 문장: "{{ fnUpperMsg }}"</p>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#main',
+            data:{
+                sOriginalMessage: 'How are you?'
+            },
+            computed: {
+                fnUpperMsg: function () {
+                    return this.sOriginalMessage.toUpperCase()
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

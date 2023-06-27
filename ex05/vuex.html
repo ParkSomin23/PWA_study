@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/vuex@3"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>안녕하세요!</h1>
+        <com-counter msg="카운터1"></com-counter>
+        <com-counter msg="카운터2"></com-counter>
+    </div>
+</body>
+<script>
+    // 필요한 속성 정의 + const
+    const store = new Vuex.Store({
+        state: {
+            // 전역 변수로 사용됨
+            count: 0
+        },
+        
+        // 외부 -> Vuex 데이터 변경, 동기
+        // 사용법: store.commit('fnDecData') / store.commit('fnIncData') 
+        mutations: {
+            fnIncData: function (state) {
+                return state.count++
+            },
+            fnDecData: state => state.count--
+        },
+
+        // Veux -> 외부로 반환
+        // 사용법: result = store.geeters.fnGetData
+        getters: {
+            fnGetData (state) {
+                return state.count;
+            },
+        },
+
+        // 비동기 실행 관리 (ex) 외부 API
+        // 사용법: store.dispatch('fnDecData')
+        actions: {
+            async fnDecData({
+                commit
+            }, state) {
+                const result = await api.fnDecrement(); // api 결과 대기
+                if (result == true) commit('fnDecData') // result가 true면, mutation의 fnDecData 실행
+            }
+        }
+
+    })
+
+    // api Promise
+    const api = {
+        fnDecrement() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(true);
+                }, 1000);
+            });
+        },
+    };
+
+    Vue.component('com-counter', {
+        props: ['msg'],
+        template: `
+            <div>
+                <h2>{{ msg }}</h2>
+                <p>카운터: {{ fnGetCount }}</p>
+                <button @click="fnIncCount">+1 증가</button>
+                <button @click="fnDecCount">-1 감소(원격 API 실행)</button>
+                <hr>
+            </div>`,
+        computed: {
+            fnGetCount() {
+                return store.getters.fnGetData;
+            }
+        },
+        methods: {
+            fnIncCount() {
+                store.commit('fnIncData')
+            },
+
+            fnDecCount() {
+                store.dispatch('fnDecData')
+            }
+        }
+    })
+
+    var gApp = new Vue({
+        el:'#app',
+        store
+    })
+    
+</script>
+</html>

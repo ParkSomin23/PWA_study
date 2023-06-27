@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+<body>
+    <div id="app">
+        <simple-counter startnum="1"></simple-counter>
+        <simple-counter startnum="10"></simple-counter>
+        <simple-counter startnum="100"></simple-counter>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script>
+        // 왜 startNum 안 됨?? 
+        // attribute에 대문자 있으면 안 되는거야??
+        // => 그렇답니다
+        Vue.component('simple-counter', {
+            props: ['startnum'],
+            template: `
+                <button v-on:click="fnIncCounter">
+                카운터 : {{ fnGetCounter }}
+                </button>`,
+            data: function () {
+                return { 
+                    nCounter: parseInt(this.startnum)
+                }
+            },
+            computed: {
+                fnGetCounter: function () {
+                    return this.nCounter
+                }
+            },
+            methods: {
+                fnIncCounter: function () {
+                    this.nCounter += 1
+                }
+            }
+        })
+
+        var gApp = new Vue({
+            el: '#app',
+        })
+    </script>
+</body>
+</html>
