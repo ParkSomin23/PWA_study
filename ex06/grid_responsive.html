@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                   maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <v-app> 
+            <v-app-bar app flat color="primary"> <!-- flat: Removes the component’s box-shadow-->
+                <v-toolbar-title class="white--text mx-auto">beetle 운동화</v-toolbar-title>
+            </v-app-bar>
+
+            <v-main>
+                <v-container>
+                    <v-row>
+                        <!-- 첫번째 열의 반응형 크기 지정 
+                            1) xs: 열 12개 차지
+                            2) sm: 열  6개 차지 -->
+                        <v-col cols="12" sm="6">
+                            <h2 class="mb-3">About Beetle</h2>
+                            <p> 운동화는 필수 아이템. 나를 운동화로 표현해보자. Beetle의 발편한 운동화</p>
+                        </v-col>
+                        <!-- 두번째 열의 반응형 크기 지정
+                            1) xs: 열 12개 차지
+                            2) sm: 열  6개 차지 
+                        -->
+                        <v-col cols="12" sm="6">
+                            <h2 class="mb-3">Beetle's Target</h2>
+                            <p>1. 관심있는 누구나</p>
+                            <p>2. 스니커즈 원하는 사람</p>
+                            <p>3. 차별화된 디자인</p>
+                            <p>4. 최신 트렌드 디자인</p>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-main>
+
+            <v-footer color="primary" dark>
+                <div class="mx-auto">Copyright &copy; {{ new Date().getFullYear() }}</div>
+            </v-footer>
+        </v-app>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        vuetify: new Vuetify()
+    })
+</script>
+</html>

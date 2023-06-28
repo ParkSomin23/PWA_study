@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport는 해상도에 맞춰서 표시-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                   maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <v-app> <!-- 첫 화면의 시작, v-app 토대로 랜더링, 필수!! -->
+            <!-- app bar: dark-글자색 흰색으로 바꾸기 fixed-앱바 위치 고정 -->
+            <v-app-bar app color="primary" dark fixed> 
+                <v-app-bar-nav-icon></v-app-bar-nav-icon> <!-- 왼쪽에 menu 아이콘 -->
+                <v-toolbar-title>마스터 페이지</v-toolbar-title>
+                <!-- 오른쪽 추가 아이콘을 위한 space, 
+                    왼쪽 정렬에서 오른쪽 정렬로 바뀜 -->
+                <v-spacer></v-spacer> 
+                <v-btn icon> <!--구글 제공 아이콘 사용-->
+                    <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
+            </v-app-bar>
+            
+            <!-- 본문 위치 지정, 자동 여백 지정 
+                 단독으로 쓰이면 모든 영역이 본문 -->
+            <v-main> 
+                <!-- v-container 안의 element들을 
+                    화면 크기에 맞춰서 여백 자동 지정 -->
+                <v-container> 
+                    <!-- 타이포그래피 설정 & 여백 설정-->
+                    <h1 class="display-1 my-5">안녕하세요</h1>
+                    <p class="body-2 my-4">마스터 페이지입니다</p>
+                    <v-divider></v-divider>
+                    <h1 class="display-3 my-4">안녕하세요</h1>
+                    <p class="body-1 my-4">마스터 페이지입니다</p>
+                </v-container>
+            </v-main>
+
+            <v-footer color="secondary" dark fixed>
+                <!-- mx-auto는 블록 레벨 가운데 정렬 -->
+                <div class="mx-auto">Copyright &copy;</div>
+            </v-footer>
+        </v-app>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        vuetify: new Vuetify()
+    })
+</script>
+</html>

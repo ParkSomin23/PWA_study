@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                   maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <v-app> 
+            <v-app-bar app color="blue" dark>
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-toolbar-title class="white--text">Virtual University</v-toolbar-title>
+            </v-app-bar>
+
+            <v-main>
+                <v-container>
+                    <v-row>
+                        <v-col xs="12">
+                            <v-card>
+                                <v-card-text style="height: 300px;" class="grey lighten-4"></v-card-text>
+                                <!--상대 좌표계: relative - 카드 제목 영역 안에 표시될 수 있음-->
+                                <v-card-text style="height: 50px; position: relative">
+                                    <!-- 절대 좌표계: absolute (top right) -->
+                                    <v-btn absolute dark fab top right color="pink">
+                                        <v-icon>add</v-icon>
+                                    </v-btn>
+                                </v-card-text>
+                            </v-card>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        vuetify: new Vuetify(),
+        data() { //component로 사용할 때 함수 형태로 선언해야함 컴포넌트 별로 각각 data 메모리 할당
+            return {
+                aList:[{
+                    icon_name:'account_balance',
+                    icon_style:'red white--text',
+                    title:'회사 소개'
+                },
+                {
+                    icon_name:'photo',
+                    icon_style:'green white--text',
+                    title:'제품 이미지'
+                },
+                {   
+                    divider: false,
+                    icon_name:'movie',
+                    icon_style:'yellow white--text',
+                    title:'홍보 동영상'
+                }]
+            }
+        }
+    })
+</script>
+</html>
