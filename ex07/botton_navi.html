@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                   maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <v-app> 
+            <v-main> 
+                <v-card height="100%" class="d-flex display-2 align-center 
+                justify-center">선택: {{ sSelect }}</v-card>
+            </v-main>
+
+            <v-footer>
+                <!-- absolute: 스크롤에 상관없이 항상 아래에 위치 
+                     value는 true/false로 보이거나 안 보이게 할 수 있음-->
+                <v-bottom-navigation absolute v-model="sSelect" dark>
+                    <!-- value는 sSelect 관련 값-->
+                    <v-btn text value="자전거">
+                        자전거
+                        <v-icon>directions_bike</v-icon>
+                    </v-btn>
+
+                    <v-btn text value="지하철">
+                        지하철
+                        <v-icon>subway</v-icon>
+                    </v-btn>
+
+                    <v-btn text value="버스">
+                        버스
+                        <v-icon>directions_bus</v-icon>
+                    </v-btn>
+                </v-bottom-navigation>
+            </v-footer>
+        </v-app>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        vuetify: new Vuetify(),
+        data: {
+            sSelect:'자전거'
+        }
+    })
+</script>
+</html>
